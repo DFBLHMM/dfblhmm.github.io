@@ -69,7 +69,8 @@
         </div>
         <div class="mv" v-if='!closeMv'>
             <video :src="videoSrc" controls></video>
-            <span class="glyphicon glyphicon-off" aria-hidden="true" @click='pauseMv' title="关闭"></span>
+            <span class="iconfont icon-guanbi" aria-hidden="true" @click='pauseMv' title="关闭"></span>
+            <span class="close" @click='pauseMv'>关闭</span>
         </div>
     </div>
     <script src="js/vue.js"></script>

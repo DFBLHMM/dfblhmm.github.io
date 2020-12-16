@@ -33,16 +33,23 @@ body {
   outline: 0;
   z-index: 999;
 }
-#app .mv .glyphicon-off {
+#app .mv .icon-guanbi {
   position: absolute;
   width: 0.260417rem;
   height: 0.260417rem;
   text-align: center;
   font-size: 0.260417rem;
   color: #C20C0C;
-  right: 0.260417rem;
+  right: 0.390625rem;
   top: 0.520833rem;
   cursor: pointer;
+}
+#app .mv .close {
+  position: absolute;
+  right: 0.358073rem;
+  top: 0.846354rem;
+  color: #C20C0C;
+  font-size: 0.16276rem;
 }
 ul {
   list-style: none;
