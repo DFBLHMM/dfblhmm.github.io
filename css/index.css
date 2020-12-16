@@ -77,11 +77,11 @@ header .search .form-control {
   color: #C20C0C;
   caret-color: orange;
 }
-header .search .glyphicon-search {
+header .search .icon-sousuo {
   position: absolute;
   color: rgba(0, 0, 0, 0.3);
-  right: 0.065104rem;
-  top: 0.058594rem;
+  right: 0.078125rem;
+  top: 0.026042rem;
   cursor: pointer;
 }
 section {

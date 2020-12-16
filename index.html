@@ -8,6 +8,7 @@
     <title>音乐播放器</title>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> -->
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/iconfont.css">
     <link rel="shortcut icon" href="index.ico">
@@ -21,7 +22,7 @@
                 <span class="logo">Music Tool</span>
                 <div class="search">
                     <input type="text" class="form-control" autofocus placeholder="搜索歌曲" v-model="message" @keyup.enter='search'>
-                    <span class="glyphicon glyphicon-search" aria-hidden="true" @click='search'></span>
+                    <span class="iconfont icon-sousuo" @click='search'></span>
                 </div>
             </header>
             <section>
@@ -74,6 +75,7 @@
     <script src="js/vue.js"></script>
     <script src="js/axios.min.js"></script>
     <script src="js/index.js "></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>
