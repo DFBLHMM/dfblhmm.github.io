@@ -78,7 +78,6 @@ var vue = new Vue({
                     }
                 }).then(result => {
                     this.comments = [];
-                    console.log(result);
                     result.data.hotComments.forEach(value => {
                         this.comments.push({
                             nickname: value.user.nickname,
