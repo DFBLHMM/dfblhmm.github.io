@@ -67,7 +67,7 @@
             </footer>
         </div>
         <div class="mv" v-if='!closeMv'>
-            <video :src="videoSrc" controls></video>
+            <video :src="videoSrc" controls preload></video>
             <span class="iconfont icon-guanbi" aria-hidden="true" @click='pauseMv' title="关闭"></span>
             <span class="close" @click='pauseMv'>关闭</span>
         </div>
