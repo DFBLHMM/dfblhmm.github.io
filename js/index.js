@@ -22,8 +22,7 @@ var vue = new Vue({
     beforeCreate() {
         window.onload = function() {
             document.body.style = 'opacity: 1';
-            // axios.defaults.baseURL = 'https://autumnfish.cn';
-            axios.defaults.baseURL = 'http://localhost:3000';
+            axios.defaults.baseURL = 'https://autumnfish.cn';
         }
     },
     methods: {
