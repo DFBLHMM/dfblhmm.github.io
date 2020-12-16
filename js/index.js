@@ -31,7 +31,7 @@ var vue = new Vue({
             this.message.trim() != '' && axios.get('/search', {
                     params: {
                         keywords: this.message,
-                        limit: 30
+                        limit: 40
                     },
                 }).then(result => {
                     this.songs = [];
