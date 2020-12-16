@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>音乐播放器</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/iconfont.css">
+    <link rel="shortcut icon" href="index.ico">
+    <script src="js/flexible.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div class="container" :style='initMv'>
+            <header>
+                <span class="logo">Music Tool</span>
+                <div class="search">
+                    <input type="text" class="form-control" autofocus placeholder="搜索歌曲" v-model="message" @keyup.enter='search'>
+                    <span class="glyphicon glyphicon-search" aria-hidden="true" @click='search'></span>
+                </div>
+            </header>
+            <section>
+                <div class="list">
+                    <ul class="list-group">
+                        <li class="list-group-item" v-for="(value,index) in songs" @click='playMusic(value)' :title="value.name + ' — ' + value.artist">
+                            {{value.name}} — {{value.artist}}
+                            <span v-if="value.mvid!==0" @click.stop='playVideo(value.mvid)' title="播放MV">MV</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="pic">
+                    <div v-show='flag_img'>
+                        <div class="control" :style='control_angle'></div>
+                        <div class="album" :style='control_animation' :class="{go:flag_go,init:flag_init}">
+                            <img :src="albumSrc" alt="">
+                        </div>
+                        <div class="currentSong">
+                            <h3>正在播放</h3>
+                            <h4>{{currentSong.name}} — {{currentSong.artist}}</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="comment">
+                    <h3 v-show="flag_img">热门评论</h3>
+                    <ul v-show="flag_img">
+                        <li v-for="value in comments">
+                            <div class="user">
+                                <img :src="value.avatarUrl" alt="">
+                                <span>{{value.nickname}}</span>
+                                <span>
+                                    <i class="iconfont icon-dianzan"></i>
+                                    {{value.likedCount}}
+                                </span>
+                            </div>
+                            <p>{{value.content}}</p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <footer>
+                <audio :src="songSrc " controls autoplay @play='play_animation' @pause='pause_animation'></audio>
+            </footer>
+        </div>
+        <div class="mv" v-if='!closeMv'>
+            <video :src="videoSrc" controls></video>
+            <span class="glyphicon glyphicon-off" aria-hidden="true" @click='pauseMv' title="关闭"></span>
+        </div>
+    </div>
+    <script src="js/vue.js"></script>
+    <script src="js/axios.min.js"></script>
+    <script src="js/index.js "></script>
+</body>
+
+</html>
