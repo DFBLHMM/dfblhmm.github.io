@@ -8,7 +8,6 @@
     <title>音乐播放器</title>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> -->
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/iconfont.css">
     <link rel="shortcut icon" href="index.ico">
@@ -68,11 +67,12 @@
             </footer>
         </div>
         <div class="mv" v-if='!closeMv'>
-            <video :src="videoSrc" controls preload></video>
+            <video :src="videoSrc" controls></video>
             <span class="iconfont icon-guanbi" aria-hidden="true" @click='pauseMv' title="关闭"></span>
             <span class="close" @click='pauseMv'>关闭</span>
         </div>
     </div>
+    <div class="loading"></div>
     <script src="js/vue.js"></script>
     <script src="js/axios.min.js"></script>
     <script src="js/index.js "></script>

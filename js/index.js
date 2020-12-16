@@ -21,7 +21,8 @@ var vue = new Vue({
     },
     beforeCreate() {
         window.onload = function() {
-            document.body.style = 'opacity: 1';
+            document.querySelector('#app').style = 'opacity: 1';
+            document.querySelector('.loading').style = 'display: none';
             axios.defaults.baseURL = 'https://autumnfish.cn';
         }
     },
