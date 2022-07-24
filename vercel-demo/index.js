@@ -1,3 +1,5 @@
+const { resolve } = require('path');
+const { readFileSync } = require('fs');
 const koa = require('koa');
 const Router = require('koa-router');
 const koaStatic = require('koa-static');
@@ -24,6 +26,13 @@ router.get('/info', ctx => {
 
 app.use(router.routes()).use(router.allowedMethods());
 app.use(koaStatic('./'));
+
+app.use(ctx => {
+  const staticPath = resolve(__dirname, 'index.html');
+  const htmlContent = readFileSync(staticPath, 'utf-8');
+  ctx.type = 'text/html; charset=utf-8';
+  ctx.body = htmlContent;
+})
 
 
 app.listen(8000, () => {
