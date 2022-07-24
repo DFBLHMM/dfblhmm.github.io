@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button id="login">登录</button>
+  <button id="getInfo">获取信息</button>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    const login = document.getElementById('login');
+    const info = document.getElementById('getInfo');
+    login.addEventListener('click', () => {
+      axios.get('http://localhost:8000/login', {
+        withCredentials: true
+      })
+        .then(res => console.log('res', res));
+    });
+    info.addEventListener('click', () => {
+      axios.get('http://localhost:8000/info', {
+        withCredentials: true
+      })
+        .then(res => console.log('res', res));
+    })
+  </script>
+</body>
+</html>

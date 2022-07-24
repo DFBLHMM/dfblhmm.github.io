@@ -1,21 +1,31 @@
-const Koa = require('koa');
+const koa = require('koa');
 const Router = require('koa-router');
+const koaStatic = require('koa-static');
 
-const app = new Koa();
+const app = new koa();
 const router = new Router();
 
-router.get('/', ctx => {
-  ctx.body = '<h2>HomePage</h2>';
-});
+router.get('/login', ctx => {
+  ctx.body = 'login';
+  ctx.response.set('Access-Control-Allow-Origin', ctx.request.origin);
+  ctx.response.set('Access-Control-Allow-Credentials', true);
+  ctx.cookies.set('name', 'why', {
+    maxAge: 60 * 1000,
+    httpOnly: false,
+  })
+})
 
-router.get('/test', ctx => {
-  ctx.body = '<h2>VerCel Demo</h2>';
-});
+router.get('/info', ctx => {
+  const info = ctx.cookies.get('name');
+  ctx.body = `<h2>${info}</h2>`;
+  ctx.response.set('Access-Control-Allow-Origin', ctx.request.origin);
+  ctx.response.set('Access-Control-Allow-Credentials', true);
+})
 
-app
-  .use(router.routes())
-  .use(router.allowedMethods());
+app.use(router.routes()).use(router.allowedMethods());
+app.use(koaStatic('./'));
 
-app.listen(8080, () => {
-  console.log('project is running at http://localhost:8080');
-});
+
+app.listen(8000, () => {
+  console.log('服务器启动成功');
+})
