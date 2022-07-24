@@ -7,7 +7,7 @@ const koaStatic = require('koa-static');
 const app = new koa();
 const router = new Router();
 
-router.get('/api/login', ctx => {
+router.get('/login', ctx => {
   ctx.body = 'login';
   ctx.response.set('Access-Control-Allow-Origin', ctx.request.origin);
   ctx.response.set('Access-Control-Allow-Credentials', true);
@@ -17,7 +17,7 @@ router.get('/api/login', ctx => {
   })
 })
 
-router.get('/api/info', ctx => {
+router.get('/info', ctx => {
   const info = ctx.cookies.get('name');
   ctx.body = `<h2>${info}</h2>`;
   ctx.response.set('Access-Control-Allow-Origin', ctx.request.origin);
