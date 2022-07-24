@@ -14,13 +14,13 @@
     const login = document.getElementById('login');
     const info = document.getElementById('getInfo');
     login.addEventListener('click', () => {
-      axios.get('http://localhost:8000/login', {
+      axios.get('https://vercel-demo-dfblhmmp.vercel.app/login', {
         withCredentials: true
       })
         .then(res => console.log('res', res));
     });
     info.addEventListener('click', () => {
-      axios.get('http://localhost:8000/info', {
+      axios.get('https://vercel-demo-dfblhmmp.vercel.app/info', {
         withCredentials: true
       })
         .then(res => console.log('res', res));
