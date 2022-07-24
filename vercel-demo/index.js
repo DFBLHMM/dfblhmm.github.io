@@ -23,7 +23,7 @@ router.get('/info', ctx => {
 })
 
 app.use(router.routes()).use(router.allowedMethods());
-app.use(koaStatic('./'));
+app.use(koaStatic('./index.html'));
 
 
 app.listen(8000, () => {
